@@ -58,5 +58,19 @@ void executee(char *argv[], env *environ);
 void *re_alloc(char *ptr, unsigned int old, unsigned int new_size);
 void mem_set(char *str, int fill, int x);
 void mem_cpy(char *dest, char *src, unsigned int bytes);
+char *get_line(int file);
+char **parse_(char *str, char *dlim_);
+void reader(void);
+char *str_tok(char *str, char *dlim_, char **ptr_save);
+int str_len(char *s);
+int strn_cmp(char *s1, char *s2, size_t bytes);
+char *str_up(char *src);
+char *strcalloc(char *dest, char *src);
+int _atoi(char *s);
+int is_digit(int a);
+unsigned int count(char *str);
+void printTing(const char *str);
+int strlen_const(const char *s);
+size_t print_list(const env *b);
 
 #endif
