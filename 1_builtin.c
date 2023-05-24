@@ -4,7 +4,7 @@
  * @cmd: command
  * Return: On success or fail
  */
-int (*builTin(char *cmd))();
+int (*builTin(char *cmd))()
 {
 	unsigned int x;
 	builtin_c builds[] = {
