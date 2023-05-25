@@ -24,7 +24,7 @@ char *_strchr(char *s, char c)
  * @accept: string
  * Return: success
  */
-unsigned int _strspr(char *s, char *accept)
+unsigned int _strspn(char *s, char *accept)
 {
 	int s_len, n, prod;
 	s_len = str_len(s);
@@ -36,7 +36,7 @@ unsigned int _strspr(char *s, char *accept)
 			prod++, n++;
 		else
 			return (prod);
-	}
+	}i
 	return (prod);
 }
 /**
