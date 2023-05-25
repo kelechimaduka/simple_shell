@@ -23,7 +23,7 @@ typedef struct envi_t
 {
 	char *str;
 	unsigned int len;
-	struct envi_t *next_node;
+	struct envi_t *next;
 }
 env;
 

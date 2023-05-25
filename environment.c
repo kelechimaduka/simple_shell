@@ -5,25 +5,25 @@
  */
 env *list_path(void)
 {
-	unsigned int i, j, k;
+	unsigned int i, k;
 	char *envs;
 	char buffer[BUFSIZE];
 	env *E_p;
 
 	E_p = NULL;
-	i = j = k = 0;
+	i = k = 0;
 	envs = get_env("PATH");
 	while (*envs)
 	{
-		buffer[j++] = *envs;
-		k++;
+		buffer[k++] = *envs;
+		i++;
 		if (*envs == ':')
 		{
-			k--;
-			buffer[j - 1] = '/';
-			buffer[j] = '\0';
-			addnode(&E_p, buffer, k);
-			k = j = 0;
+			i--;
+			buffer[k - 1] = '/';
+			buffer[k] = '\0';
+			addnode(&E_p, buffer, i);
+			i = k = 0;
 		}
 		envs++;
 	}

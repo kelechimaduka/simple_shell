@@ -7,7 +7,7 @@
  */
 void executee(char *argv[], env *environ)
 {
-	pd_ stat_1 = 0;
+	pid_t stat_1 = 0;
 	char *absolutepath;
 
 	absolutepath = search_(argv[0], environ);
