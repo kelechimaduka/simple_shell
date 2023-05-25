@@ -72,7 +72,7 @@ char *_strpbrk(char *s, char *delims)
  * @ptr_save: save pointer
  * Return: success
  */
-char *str_tok(char *str, char dlim_, char **ptr_save)
+char *str_tok(char *str, char *dlim_, char **ptr_save)
 {
 	char *tok;
 
@@ -82,7 +82,7 @@ char *str_tok(char *str, char dlim_, char **ptr_save)
 			return (NULL);
 		str = *ptr_save;
 	}
-	s += _strspn(str, dlim_);
+	str += _strspn(str, dlim_);
 	if (*str == '\0')
 	{
 		*ptr_save = NULL;
