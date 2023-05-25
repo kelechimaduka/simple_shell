@@ -11,13 +11,13 @@ unsigned int count_(char *str)
 
 	for (x = 0, y = 1, flag = 0; str[x]; x++)
 	{
-		if (flag == 0 &&
-			(str[x] == dlim_[0]
-			 || str[x] == dlim_[1]
-			 || str[x] == dlim_[2]
-			 && str[x + 1] != dlim_[0]
-			 && str[x + 1] != dlim_[1]
-			 && str[x + 1] != dlim_[2])
+		if (flag == 0 && 
+				(str[x] == dlim_[0]
+				|| str[x] == dlim_[1]
+				|| str[x] == dlim_[2])
+				&& str[x + 1] != dlim_[0]
+				&& str[x + 1] != dlim_[1]
+				&& str[x + 1] != dlim_[2])
 			flag = 1, y++;
 		else
 			flag = 0;
