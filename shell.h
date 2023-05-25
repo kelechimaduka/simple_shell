@@ -68,7 +68,7 @@ char *str_up(char *src);
 char *strcalloc(char *dest, char *src);
 int _atoi(char *s);
 int is_digit(int a);
-unsigned int count(char *str);
+unsigned int count_(char *str);
 void printTing(const char *str);
 int strlen_const(const char *s);
 size_t print_list(const env *b);

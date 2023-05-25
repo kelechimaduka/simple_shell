@@ -1,10 +1,10 @@
 #include "shell.h"
 /**
- * count - counts words
+ * count_ - counts words
  * @str: string
  * Return: success
  */
-unsigned int count(char *str)
+unsigned int count_(char *str)
 {
 	unsigned int x, y, flag;
 	char *dlim_ = "\n \t";
