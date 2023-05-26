@@ -3,7 +3,7 @@
  * list_path - creates linked list
  * Return: Success
  */
-env *list_path(void)
+env_t *list_path(void)
 {
 	unsigned int i, k;
 	char *envs;
@@ -33,7 +33,7 @@ env *list_path(void)
  * envi_L_list - creates linked list from PATH
  * Return: Success
  */
-env *envi_L_list(void)
+env_t *envi_L_list(void)
 {
 	int i, j;
 	char **envs;
@@ -55,7 +55,7 @@ env *envi_L_list(void)
  * @environ: path to search through
  * Return: Success
  */
-char *search_(char *cmd, env *environ)
+char *search_(char *cmd, env_t *environ)
 {
 	int stats;
 	char *absolutepath;

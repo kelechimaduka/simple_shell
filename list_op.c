@@ -6,9 +6,9 @@
  * @len: length of string
  * Return: Success
  */
-env *addnode(env **head, char *str, unsigned int len)
+env_t *addnode(env_t **head, char *str, unsigned int len)
 {
-	env *new, *ju;
+	env_t *new, *ju;
 	char *str2;
 
 	if (str == NULL)
@@ -38,7 +38,7 @@ env *addnode(env **head, char *str, unsigned int len)
  * freelist - frees list
  * @head: start
  */
-void freelist(env *head)
+void freelist(env_t *head)
 {
 	if (head == NULL)
 		return;

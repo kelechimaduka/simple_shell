@@ -34,7 +34,7 @@ int (*builTin(char *cmd))()
  * @token: token
  * Return: Success
  */
-int exitTING(char **token, env *environ, char *buffer)
+int exitTING(char **token, env_t *environ, char *buffer)
 {
 	unsigned char exit_status;
 	int y;
@@ -64,7 +64,7 @@ int exitTING(char **token, env *environ, char *buffer)
  * @environment: list environment
  * Return: 0 or -1
  */
-int _env(char **token, env *environment)
+int _env(char **token, env_t *environment)
 {
 	char **en;
 

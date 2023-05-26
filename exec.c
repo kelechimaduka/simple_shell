@@ -5,7 +5,7 @@
  * @environ: path
  * Return: Success
  */
-void executee(char *argv[], env *environ)
+void executee(char *argv[], env_t *environ)
 {
 	pid_t stat_1 = 0;
 	char *absolutepath;

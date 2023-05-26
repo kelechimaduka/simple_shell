@@ -3,7 +3,7 @@
  * re_alloc - relocates memory
  * @ptr: pointer
  * @old: old size
- * @ne_size: new size
+ * @new_size: new size
  * Return: success
  */
 void *re_alloc(char *ptr, unsigned int old, unsigned int new_size)

@@ -27,6 +27,7 @@ char *_strchr(char *s, char c)
 unsigned int _strspn(char *s, char *accept)
 {
 	int s_len, n, prod;
+
 	s_len = str_len(s);
 	n = 0;
 	prod = 0;
@@ -36,7 +37,7 @@ unsigned int _strspn(char *s, char *accept)
 			prod++, n++;
 		else
 			return (prod);
-	}i
+	}
 	return (prod);
 }
 /**

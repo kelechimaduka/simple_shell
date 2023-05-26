@@ -59,15 +59,12 @@ char **parse_(char *str, char *dlim_)
 	return (tok_d);
 }
 /**
- * Global variable: Flag, handles interrupt signals */
-unsigned char sig_flag = 0;
-/**
  * sighand - handles signals
- * @signal: signal
+ * @sigl: signal
  */
-static void sighand(int signal)
+static void sighand(int sigl)
 {
-	if (signal == SIGINT && sig_flag == 0)
+	if (sigl == SIGINT && sig_flag == 0)
 		printTing("\nAnd baby says: ");
 	else if (sig_flag != 0)
 		printTing("\n");
@@ -78,5 +75,41 @@ static void sighand(int signal)
  */
 int main(void)
 {
-	char pipe_flag, *buffer, *cmd, *ptrsave, **tok;
+	char pipe_flag, *buffer, *cmd_, *ptrsave, **tok;
+	env_t environ;
+	struct stat stat_buff;
 
+	if (signal(SIGINT, sighand) == SIG_ERR)
+		perror("signal error\n");
+	if (fstat(STDIN_FILENO, &stat_buff) == -1)
+		perror("fstat error\n"), exit(98);
+	pipe_flag = (stat_buff.st_mode & S_IFMT) == S_IFCHR ? 0 : 1;
+	environ = list_path();
+	if (environ == NULL)
+		return (-1);
+	ptrsave = NULL;
+	while (1)
+	{
+		sig_flag = 0;
+		if (pipe_flag == 0)
+			printTing("And baby says: ");
+		buffer = get_line(STDIN_FILENO);
+		if (!buffer)
+			break;
+		cmd_ = str_tok(buffer, "\n;", &ptrsave);
+		while (cmd_)
+		{
+			tok = parse_(cmd_, "\t ");
+			if (!tok)
+				break;
+			if (builTin(tok[0]))
+				builTin(tok[0])(tok, environ, cmd_);
+			else
+				sig_flag = 1, executee(tok, environ);
+			free(tok);
+			cmd_ = str_tok(NULL, "\n;", &ptrsave);
+		}
+		free(buffer);
+	}
+	return (0);
+}

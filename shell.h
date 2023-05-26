@@ -14,18 +14,18 @@
 #define BUFSIZE 1024
 extern char **Envi;
 /**
- * strict envi_t - linked list
+ * struct envi_type - linked list
  * @str: path
  * @len: length
- * @next_node: next node
+ * @next: next node
  */
-typedef struct envi_t
+typedef struct envi_type
 {
 	char *str;
 	unsigned int len;
-	struct envi_t *next;
+	struct envi_type *next;
 }
-env;
+env_t;
 
 /**
  * struct builtin_cmd - struct for builtin commands
@@ -37,24 +37,24 @@ typedef struct builtin_cmd
 	char *cmd_;
 	int (*function)();
 }
-builtin_c;
+builtin_cmds_t;
 
 int (*builTin(char *cmd))();
-int exitTING(char **token, env *environ, char *buffer);
-int _env(char **token, env *environment);
+int exitTING(char **token, env_t *environ, char *buffer);
+int _env(char **token, env_t *environment);
 int cdD(char **token);
 int set_user(char **token);
 int stren(void);
 int past(void);
 int barbie(void);
-env *list_path(void);
-env *envi_L_list(void);
-char *search_(char *cmd, env *environ);
+env_t *list_path(void);
+env_t *envi_L_list(void);
+char *search_(char *cmd, env_t *environ);
 char *get_env(const char *nom);
 int set_env(const char *nom, const char *value, int overwrite);
-env *addnode(env **head, char *str, unsigned int len);
-void freelist(env *head);
-void executee(char *argv[], env *environ);
+env_t *addnode(env_t **head, char *str, unsigned int len);
+void freelist(env_t *head);
+void executee(char *argv[], env_t *environ);
 void *re_alloc(char *ptr, unsigned int old, unsigned int new_size);
 void mem_set(char *str, int fill, int x);
 void mem_cpy(char *dest, char *src, unsigned int bytes);
@@ -71,6 +71,6 @@ int is_digit(int a);
 unsigned int count_(char *str);
 void printTing(const char *str);
 int strlen_const(const char *s);
-size_t print_list(const env *b);
+size_t print_list(const env_t *b);
 
 #endif
