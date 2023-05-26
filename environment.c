@@ -8,7 +8,7 @@ env_t *list_path(void)
 	unsigned int i, k;
 	char *envs;
 	char buffer[BUFSIZE];
-	env *E_p;
+	env_t *E_p;
 
 	E_p = NULL;
 	i = k = 0;
@@ -37,7 +37,7 @@ env_t *envi_L_list(void)
 {
 	int i, j;
 	char **envs;
-	env *E_p;
+	env_t *E_p;
 
 	E_p = NULL;
 	i = j = 0;
@@ -59,7 +59,7 @@ char *search_(char *cmd, env_t *environ)
 {
 	int stats;
 	char *absolutepath;
-	env *E_p;
+	env_t *E_p;
 
 	E_p = environ;
 	if (E_p == NULL || cmd == NULL)

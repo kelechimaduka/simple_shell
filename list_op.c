@@ -16,7 +16,7 @@ env_t *addnode(env_t **head, char *str, unsigned int len)
 	str2 = str_up(str);
 	if (str2 == NULL)
 		return (NULL);
-	new = malloc(sizeof(env));
+	new = malloc(sizeof(_env));
 	if (new == NULL)
 		return (NULL);
 	new->str = str2;

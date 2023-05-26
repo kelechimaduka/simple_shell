@@ -7,7 +7,7 @@
 int (*builTin(char *cmd))()
 {
 	unsigned int x;
-	builtin_c builds[] = {
+	builtin_cmd_t builds[] = {
 		{"alias", stren},
 		{"cd", cdD},
 		{"env", _env},

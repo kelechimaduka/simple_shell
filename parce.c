@@ -17,7 +17,7 @@ char *get_line(int file)
 		return (NULL);
 	}
 	index = 0;
-	mem_set(buffer, '\0', buffer_siz);
+	mem_set(buffer, '\0', buffer_size);
 	while ((i = read(file, buffer + index, buffer_size - index)) > 0)
 	{
 		if (i < (buffer_size - index))
@@ -54,7 +54,7 @@ char **parse_(char *str, char *dlim_)
 		return (NULL);
 	}
 	tok_d[0] = tok = str_tok(str, dlim_, &ptrsave);
-	for (i = 1; tok, i++)
+	for (i = 1; tok; i++)
 		tok_d[i] = tok = str_tok(NULL, dlim_, &ptrsave);
 	return (tok_d);
 }
@@ -64,6 +64,8 @@ char **parse_(char *str, char *dlim_)
  */
 static void sighand(int sigl)
 {
+	unsigned char sig_flag = 0;
+
 	if (sigl == SIGINT && sig_flag == 0)
 		printTing("\nAnd baby says: ");
 	else if (sig_flag != 0)
@@ -78,6 +80,7 @@ int main(void)
 	char pipe_flag, *buffer, *cmd_, *ptrsave, **tok;
 	env_t environ;
 	struct stat stat_buff;
+	unsigned char sig_flag = 0;
 
 	if (signal(SIGINT, sighand) == SIG_ERR)
 		perror("signal error\n");
