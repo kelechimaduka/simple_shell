@@ -108,7 +108,7 @@ int main(void)
 			if (builTin(tok[0]))
 				builTin(tok[0])(tok, environ, cmd_);
 			else
-				sig_flag = 1, executee(tok, environ);
+				executee(tok, environ);
 			free(tok);
 			cmd_ = str_tok(NULL, "\n;", &ptrsave);
 		}
