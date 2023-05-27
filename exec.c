@@ -13,7 +13,7 @@ void executee(char *argv[], env_t *environs)
 	absolutepath = search_(argv[0], environs);
 	if (!absolutepath)
 	{
-		perror();
+		perror("");
 		return;
 	}
 
