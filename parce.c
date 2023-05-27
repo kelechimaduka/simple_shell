@@ -80,7 +80,6 @@ int main(void)
 	char pipe_flag, *buffer, *cmd_, *ptrsave, **tok;
 	env_t *environ;
 	struct stat stat_buff;
-	unsigned char sig_flag;
 
 	if (signal(SIGINT, sighand) == SIG_ERR)
 		perror("signal error\n");
@@ -93,7 +92,6 @@ int main(void)
 	ptrsave = NULL;
 	while (1)
 	{
-		sig_flag = 0;
 		if (pipe_flag == 0)
 			printTing("And baby says: ");
 		buffer = get_line(STDIN_FILENO);
@@ -108,7 +106,7 @@ int main(void)
 			if (builTin(tok[0]))
 				builTin(tok[0])(tok, environ, cmd_);
 			else
-				sig_flag = 1, executee(tok, environ);
+				executee(tok, environ);
 			free(tok);
 			cmd_ = str_tok(NULL, "\n;", &ptrsave);
 		}
