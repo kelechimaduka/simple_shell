@@ -3,7 +3,7 @@
  * executee - executes a command
  * @argv: array of tokens
  * @environs: path
- * Return: Success
+ * Return: 0 on Success, -1 on failure
  */
 void executee(char *argv[], env_t *environs)
 {
@@ -13,7 +13,7 @@ void executee(char *argv[], env_t *environs)
 	absolutepath = search_(argv[0], environs);
 	if (!absolutepath)
 	{
-		perror("command not found\n");
+		perror();
 		return;
 	}
 
