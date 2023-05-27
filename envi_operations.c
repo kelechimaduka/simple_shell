@@ -8,6 +8,7 @@ char *get_env(const char *nom)
 {
 	int i, j, k;
 	char **envs, *temp;
+	extern char **Envi;
 
 	if (!nom)
 		return (NULL);

@@ -9,6 +9,7 @@ void executee(char *argv[], env_t *environ)
 {
 	pid_t stat_1 = 0;
 	char *absolutepath;
+	extern char **Envi;
 
 	absolutepath = search_(argv[0], environ);
 	if (!absolutepath)

@@ -38,6 +38,7 @@ env_t *envi_L_list(void)
 	int i, j;
 	char **envs;
 	env_t *E_p;
+	extern char **Envi;
 
 	E_p = NULL;
 	i = j = 0;
