@@ -2,16 +2,16 @@
 /**
  * executee - executes a command
  * @argv: array of tokens
- * @environ: path
+ * @environs: path
  * Return: Success
  */
-void executee(char *argv[], env_t *environ)
+void executee(char *argv[], env_t *environs)
 {
 	pid_t stat_1 = 0;
 	char *absolutepath;
-	char **Trace = Envi;
+	char **Trace = environ;
 
-	absolutepath = search_(argv[0], environ);
+	absolutepath = search_(argv[0], environs);
 	if (!absolutepath)
 	{
 		perror("command not found\n");

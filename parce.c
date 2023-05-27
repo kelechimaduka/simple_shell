@@ -78,7 +78,7 @@ static void sighand(int sigl)
 int main(void)
 {
 	char pipe_flag, *buffer, *cmd_, *ptrsave, **tok;
-	env_t *environ;
+	env_t *environs;
 	struct stat stat_buff;
 
 	if (signal(SIGINT, sighand) == SIG_ERR)
@@ -86,8 +86,8 @@ int main(void)
 	if (fstat(STDIN_FILENO, &stat_buff) == -1)
 		perror("fstat error\n"), exit(98);
 	pipe_flag = (stat_buff.st_mode & S_IFMT) == S_IFCHR ? 0 : 1;
-	environ = list_path();
-	if (environ == NULL)
+	environs = list_path();
+	if (environs == NULL)
 		return (-1);
 	ptrsave = NULL;
 	while (1)
@@ -104,9 +104,9 @@ int main(void)
 			if (!tok)
 				break;
 			if (builTin(tok[0]))
-				builTin(tok[0])(tok, environ, cmd_);
+				builTin(tok[0])(tok, environs, cmd_);
 			else
-				executee(tok, environ);
+				executee(tok, environs);
 			free(tok);
 			cmd_ = str_tok(NULL, "\n;", &ptrsave);
 		}

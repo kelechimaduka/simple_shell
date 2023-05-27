@@ -29,12 +29,12 @@ int (*builTin(char *cmd))()
 }
 /**
  * exitTING - frees any remaining spaces
- * @environ: linked list
+ * @environs: linked list
  * @buffer: buffer
  * @token: token
  * Return: Success
  */
-int exitTING(char **token, env_t *environ, char *buffer)
+int exitTING(char **token, env_t *environs, char *buffer)
 {
 	unsigned char exit_status;
 	int y;
@@ -48,10 +48,10 @@ int exitTING(char **token, env_t *environ, char *buffer)
 		}
 	}
 	exit_status = token[1] && y >= str_len(token[1]) ? _atoi(token[1]) : 0;
-	if (environ && buffer && token)
+	if (environs && buffer && token)
 	{
-		freelist(environ);
-		environ = NULL;
+		freelist(environs);
+		environs = NULL;
 		free(token);
 		token = NULL;
 	}
@@ -66,11 +66,11 @@ int exitTING(char **token, env_t *environ, char *buffer)
  */
 int _env(char **token, env_t *environment)
 {
-	char **en = Envi;
+	char **en = environ;
 
 	if (token[1])
 		printTing("No arguments are necessary\n");
-	if (!en || !Envi)
+	if (!en || !environ)
 		return (-1);
 	for ( ; *en; en++)
 	{

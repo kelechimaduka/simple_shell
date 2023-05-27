@@ -12,7 +12,7 @@
 #include <string.h>
 
 #define BUFSIZE 1024
-extern char **Envi;
+extern char **environ;
 /**
  * struct envi_type - linked list
  * @str: path
@@ -40,7 +40,7 @@ typedef struct builtin_cmd
 builtin_cmds_t;
 
 int (*builTin(char *cmd))();
-int exitTING(char **token, env_t *environ, char *buffer);
+int exitTING(char **token, env_t *environs, char *buffer);
 int _env(char **token, env_t *environment);
 int cdD(char **token);
 int set_user(char **token);
@@ -49,12 +49,12 @@ int past(void);
 int barbie(void);
 env_t *list_path(void);
 env_t *envi_L_list(void);
-char *search_(char *cmd, env_t *environ);
+char *search_(char *cmd, env_t *environs);
 char *get_env(const char *nom);
 int set_env(const char *nom, const char *value, int overwrite);
 env_t *addnode(env_t **head, char *str, unsigned int len);
 void freelist(env_t *head);
-void executee(char *argv[], env_t *environ);
+void executee(char *argv[], env_t *environs);
 void *re_alloc(char *ptr, unsigned int old, unsigned int new_size);
 void mem_set(char *str, int fill, int x);
 void mem_cpy(char *dest, char *src, unsigned int bytes);

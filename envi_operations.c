@@ -7,7 +7,7 @@
 char *get_env(const char *nom)
 {
 	int i, j, k;
-	char **envs = Envi;
+	char **envs = environ;
 	char *temp;
 
 	if (!nom)

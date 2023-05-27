@@ -36,7 +36,7 @@ env_t *list_path(void)
 env_t *envi_L_list(void)
 {
 	int i, j;
-	char **envs = Envi;
+	char **envs = environ;
 	env_t *E_p;
 
 	E_p = NULL;
@@ -54,13 +54,13 @@ env_t *envi_L_list(void)
  * @environ: path to search through
  * Return: Success
  */
-char *search_(char *cmd, env_t *environ)
+char *search_(char *cmd, env_t *environs)
 {
 	int stats;
 	char *absolutepath;
 	env_t *E_p;
 
-	E_p = environ;
+	E_p = environs;
 	if (E_p == NULL || cmd == NULL)
 		return (NULL);
 	if ((strn_cmp(cmd, "/", 1) == 0
