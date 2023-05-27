@@ -9,7 +9,6 @@ void executee(char *argv[], env_t *environs)
 {
 	pid_t stat_1 = 0;
 	char *absolutepath;
-	char **Trace = environ;
 
 	absolutepath = search_(argv[0], environs);
 	if (!absolutepath)
@@ -24,7 +23,7 @@ void executee(char *argv[], env_t *environs)
 			perror("fork failed\n");
 			break;
 		case 0:
-			if (execve(absolutepath, argv, Trace) == -1)
+			if (execve(absolutepath, argv, environ) == -1)
 				perror("execution failed\n");
 			break;
 		default:
