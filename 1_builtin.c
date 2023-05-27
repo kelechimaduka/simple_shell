@@ -66,8 +66,7 @@ int exitTING(char **token, env_t *environ, char *buffer)
  */
 int _env(char **token, env_t *environment)
 {
-	char **en;
-	extern char **Envi;
+	char **en, **Envi;
 
 	if (token[1])
 		printTing("No arguments are necessary\n");

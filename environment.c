@@ -36,9 +36,8 @@ env_t *list_path(void)
 env_t *envi_L_list(void)
 {
 	int i, j;
-	char **envs;
+	char **envs = Envi;
 	env_t *E_p;
-	extern char **Envi;
 
 	E_p = NULL;
 	i = j = 0;
