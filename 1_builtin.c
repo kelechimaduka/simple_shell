@@ -70,7 +70,6 @@ int _env(char **token, env_t *environment)
 
 	if (token[1])
 		printTing("No arguments are necessary\n");
-	en = Envi;
 	if (!en || !Envi)
 		return (-1);
 	for ( ; *en; en++)

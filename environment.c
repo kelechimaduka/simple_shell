@@ -41,7 +41,6 @@ env_t *envi_L_list(void)
 
 	E_p = NULL;
 	i = j = 0;
-	envs = Envi;
 	while (envs[i])
 	{
 		addnode(&E_p, envs[i], (unsigned int)str_len(envs[i]));

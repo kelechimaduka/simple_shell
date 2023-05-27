@@ -12,7 +12,6 @@ char *get_env(const char *nom)
 
 	if (!nom)
 		return (NULL);
-	envs = Envi;
 	for (i = 0; envs[i]; i++)
 	{
 		for (k = 0; envs[i][k] != '='; k++)
