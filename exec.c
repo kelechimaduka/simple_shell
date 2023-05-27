@@ -3,7 +3,6 @@
  * executee - executes a command
  * @argv: array of tokens
  * @environs: path
- * Return: 0 on Success, -1 on failure
  */
 void executee(char *argv[], env_t *environs)
 {
@@ -14,7 +13,6 @@ void executee(char *argv[], env_t *environs)
 	if (!absolutepath)
 	{
 		perror("");
-		return;
 	}
 
 	switch (stat_1 = fork())
